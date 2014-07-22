@@ -9,6 +9,7 @@ import UIKit
 
 
 extension UIView {
+
 	
 	func addConstraints(#views: [String : UIView], priority: Float = 1000, metrics: [String : Double]? = nil,
 						horizontalFormat: String? = nil, horizontalOptions: NSLayoutFormatOptions = NSLayoutFormatOptions(0), horizontalPriority: Float? = nil,
@@ -17,10 +18,11 @@ extension UIView {
 		let createConstraintsFromFormat = {(#format: String, #options: NSLayoutFormatOptions, metrics: [String : Double]?, priority: Float) -> [NSLayoutConstraint] in
 			let constraints = NSLayoutConstraint.constraintsWithVisualFormat(format, options:options, metrics: metrics, views: views) as [NSLayoutConstraint]
 			
-			return constraints.map {constraint in
+			for constraint in constraints {
 				constraint.priority = priority
-				return constraint
 			}
+			
+			return constraints
 		}
 		
 		
@@ -53,10 +55,11 @@ extension UIView {
 	
 	
 	func addConstraints(constraints: [NSLayoutConstraint], priority: UILayoutPriority) {
-		self.addConstraints(constraints.map { constraint in
+		for constraint in constraints {
 			constraint.priority = priority
-			return constraint
-		})
+		}
+		
+		self.addConstraints(constraints)
 	}
 
 	
