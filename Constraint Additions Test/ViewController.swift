@@ -9,7 +9,6 @@
 import UIKit
 
 
-
 class ViewController: UIViewController {
 	
 	override func viewDidLoad() {
@@ -51,5 +50,5 @@ class ViewController: UIViewController {
 		greenView.addConstraints(views: ["greenView" : greenView], horizontalFormat:"[greenView(100)]", verticalFormat:"[greenView(100)]")
 		constraints = view.centerView(greenView, relativeToView: blueView, xAxis: true, yAxis: true)
 	}
-}
 
+}

@@ -11,7 +11,6 @@ import UIKit
 
 extension UIView {
 	
-	
 	func addConstraints(#views: [String : UIView],
 						priority: Float = 1000,		// NSLayoutPriorityRequired
 						metrics: [String : Double]? = nil,
