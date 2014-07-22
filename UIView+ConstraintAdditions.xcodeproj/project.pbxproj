@@ -25,6 +25,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A127170197DEBCB00345E2D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4A90760C197C757E00DE761D /* UIView+ConstraintAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ConstraintAdditions.swift"; sourceTree = "<group>"; };
 		4A907645197C7E8900DE761D /* Constraint Additions Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Constraint Additions Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A907649197C7E8900DE761D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +57,7 @@
 		4A907604197C756600DE761D = {
 			isa = PBXGroup;
 			children = (
+				4A127170197DEBCB00345E2D /* README.md */,
 				4A90760C197C757E00DE761D /* UIView+ConstraintAdditions.swift */,
 				4A907647197C7E8900DE761D /* Constraint Additions Test */,
 				4A907646197C7E8900DE761D /* Products */,
@@ -434,6 +436,7 @@
 				4A907661197C7E8900DE761D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4A907662197C7E8900DE761D /* Build configuration list for PBXNativeTarget "Constraint Additions TestTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +445,7 @@
 				4A907664197C7E8900DE761D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
