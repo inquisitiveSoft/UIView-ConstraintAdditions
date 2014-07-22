@@ -9,11 +9,20 @@ import UIKit
 
 
 extension UIView {
-
 	
-	func addConstraints(#views: [String : UIView], priority: Float = 1000, metrics: [String : Double]? = nil,
-						horizontalFormat: String? = nil, horizontalOptions: NSLayoutFormatOptions = NSLayoutFormatOptions(0), horizontalPriority: Float? = nil,
-						verticalFormat: String? = nil, verticalOptions: NSLayoutFormatOptions = NSLayoutFormatOptions(0), verticalPriority: Float? = nil) -> [NSLayoutAttribute : NSLayoutConstraint] {
+	
+	func addConstraints(#views: [String : UIView],
+						priority: Float = 1000,		// NSLayoutPriorityRequired
+						metrics: [String : Double]? = nil,
+		
+						horizontalFormat: String? = nil,
+						horizontalOptions: NSLayoutFormatOptions = NSLayoutFormatOptions(0),
+						horizontalPriority: Float? = nil,
+		
+						verticalFormat: String? = nil,
+						verticalOptions: NSLayoutFormatOptions = NSLayoutFormatOptions(0),
+						verticalPriority: Float? = nil)
+								-> [NSLayoutAttribute : NSLayoutConstraint] {
 		
 		let createConstraintsFromFormat = {(#format: String, #options: NSLayoutFormatOptions, metrics: [String : Double]?, priority: Float) -> [NSLayoutConstraint] in
 			let constraints = NSLayoutConstraint.constraintsWithVisualFormat(format, options:options, metrics: metrics, views: views) as [NSLayoutConstraint]
@@ -29,8 +38,7 @@ extension UIView {
 		var constraints = [NSLayoutConstraint]()
 		
 		if let format = horizontalFormat {
-			var p: Float = horizontalPriority ? horizontalPriority! : priority
-			constraints += createConstraintsFromFormat(format, horizontalOptions, metrics, p)
+			constraints += createConstraintsFromFormat(format, horizontalOptions, metrics, (horizontalPriority ? horizontalPriority! : priority))
 		}
 		
 		if var format: NSString = verticalFormat {
@@ -39,8 +47,7 @@ extension UIView {
 				format = "V:" + format
 			}
 			
-			var p: Float = verticalPriority ? verticalPriority! : priority
-			constraints += createConstraintsFromFormat(format, verticalOptions, metrics, p)
+			constraints += createConstraintsFromFormat(format, verticalOptions, metrics, verticalPriority ? verticalPriority! : priority)
 		}
 		
 		self.addConstraints(constraints)
