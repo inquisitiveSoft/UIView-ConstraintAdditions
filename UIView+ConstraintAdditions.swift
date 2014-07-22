@@ -10,39 +10,26 @@ import UIKit
 
 extension UIView {
 	
-	func addConstraints (
-			#views: [String : UIView],
-			priority: Float? = nil,
-			metrics: [String : Double]? = nil,
+	func addConstraints(#views: [String : UIView], priority: Float = 1000, metrics: [String : Double]? = nil,
+						horizontalFormat: String? = nil, horizontalOptions: NSLayoutFormatOptions = NSLayoutFormatOptions(0), horizontalPriority: Float? = nil,
+						verticalFormat: String? = nil, verticalOptions: NSLayoutFormatOptions = NSLayoutFormatOptions(0), verticalPriority: Float? = nil) -> [NSLayoutAttribute : NSLayoutConstraint] {
 		
-			horizontalFormat: String? = nil,
-			horizontalOptions: NSLayoutFormatOptions? = nil,
-			horizontalPriority: Float? = nil,
-		
-			verticalFormat: String? = nil,
-			verticalOptions: NSLayoutFormatOptions? = nil,
-			verticalPriority: Float? = nil) -> [NSLayoutAttribute : NSLayoutConstraint] {
-		
-		if views.count == 0 {
-			return Dictionary()
-		}
-		
-		
-		var constraints: [NSLayoutConstraint] = []
-		
-		if horizontalFormat {
-			let options: NSLayoutFormatOptions = horizontalOptions ? horizontalOptions! : NSLayoutFormatOptions(0)
-			let horizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(horizontalFormat, options:options, metrics: metrics, views: views) as [NSLayoutConstraint]
+		func createConstraintsFromFormat(#format: String, #options: NSLayoutFormatOptions, metrics: [String : Double]? = nil, priority: Float = 1000) -> [NSLayoutConstraint] {
+			let constraints = NSLayoutConstraint.constraintsWithVisualFormat(format, options:options, metrics: metrics, views: views) as [NSLayoutConstraint]
 			
-			if priority {
-				for constraint in horizontalConstraints {
-					constraint.priority = priority!
-				}
+			return constraints.map {constraint in
+				constraint.priority = priority
+				return constraint
 			}
-			
-			constraints += horizontalConstraints
 		}
 		
+		
+		var constraints = [NSLayoutConstraint]()
+		
+		if let format = horizontalFormat {
+			var p: Float = horizontalPriority ? horizontalPriority! : priority
+			constraints += createConstraintsFromFormat(format: format, options: horizontalOptions, metrics: metrics, priority: p)
+		}
 		
 		if var format: NSString = verticalFormat {
 			// Prefix V: to the given format string if necessary
@@ -50,30 +37,20 @@ extension UIView {
 				format = "V:" + format
 			}
 			
-			let options: NSLayoutFormatOptions = verticalOptions ? verticalOptions! : NSLayoutFormatOptions(0)
-			let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(format, options:options, metrics: metrics, views: views) as [NSLayoutConstraint]
-			
-			if priority {
-				for constraint in verticalConstraints {
-					constraint.priority = priority!
-				}
-			}
-			
-			constraints += verticalConstraints
+			var p: Float = verticalPriority ? verticalPriority! : priority
+			constraints += createConstraintsFromFormat(format: format, options: verticalOptions, metrics: metrics, priority:p)
 		}
 		
-		
 		self.addConstraints(constraints)
-
 		
 		var constraintsDictionary = Dictionary<NSLayoutAttribute, NSLayoutConstraint>()
-		
 		for constraint in constraints {
 			constraintsDictionary[constraint.firstAttribute] = constraint
 		}
 		
 		return constraintsDictionary
 	}
+	
 	
 	func addConstraints(constraints: [NSLayoutConstraint], priority: UILayoutPriority) {
 		for constraint in constraints {
@@ -83,7 +60,6 @@ extension UIView {
 		self.addConstraints(constraints);
 	}
 
-	
 	
 	func fillView(parentView: UIView, priority: UILayoutPriority = 1000) -> [NSLayoutAttribute : NSLayoutConstraint] {
 		var constraints = [NSLayoutAttribute : NSLayoutConstraint]()
