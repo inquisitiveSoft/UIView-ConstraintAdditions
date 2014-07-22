@@ -23,7 +23,6 @@
 /* Begin PBXFileReference section */
 		4A127170197DEBCB00345E2D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4A907649197C7E8900DE761D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4A90764C197C7E8900DE761D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4A90764F197C7E8900DE761D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A907651197C7E8900DE761D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4AC229F7197F12E500EE69C9 /* UIView+ConstraintAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ConstraintAdditions.h"; sourceTree = "<group>"; };
@@ -82,7 +81,6 @@
 				4AC229FB197F12FD00EE69C9 /* AppDelegate.m */,
 				4AC229FD197F135700EE69C9 /* ViewController.h */,
 				4AC229FE197F135700EE69C9 /* ViewController.m */,
-				4A90764C197C7E8900DE761D /* ViewController.swift */,
 				4A90764E197C7E8900DE761D /* Main.storyboard */,
 				4A907651197C7E8900DE761D /* Images.xcassets */,
 				4A907648197C7E8900DE761D /* Supporting Files */,

@@ -1,5 +1,6 @@
 //  Created by Harry Jordan on 24/04/2013.
-//  Copyright (c) 2013 Inquisitive Software. All rights reserved.
+//  Copyright (c) 2013 Inquisitive Software
+//  Released under the MIT license: http://opensource.org/licenses/mit-license.php
 
 
 #import "UIView+ConstraintAdditions.h"

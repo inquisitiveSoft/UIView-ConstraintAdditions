@@ -3,7 +3,7 @@
 //  UIView+ConstraintAdditions test
 //
 //  Created by Harry Jordan on 22/07/2014.
-//
+//  Released under the MIT license: http://opensource.org/licenses/mit-license.php
 //
 
 #import <UIKit/UIKit.h>
