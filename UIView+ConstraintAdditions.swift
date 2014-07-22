@@ -2,7 +2,8 @@
 //  UIView+Constraints.swift
 //
 //  Created by Harry Jordan on 10/07/2014.
-//  Copyright (c) 2014 Syml. All rights reserved.
+//  Copyright (c) 2014 Syml.
+//  Released under the MIT license: http://opensource.org/licenses/mit-license.php
 //
 
 import UIKit
